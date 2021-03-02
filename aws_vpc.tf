@@ -11,6 +11,7 @@ resource "aws_subnet" "main1" {
     vpc_id = "${aws_vpc.main1.id}"
     cidr_block = "192.168.1.0/24"
     availability_zone = "us-east-1a"
+    map_public_ip_on_launch = true
 
     tags = {
       "Name" = "Main Subnet 1"
