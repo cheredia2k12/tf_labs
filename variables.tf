@@ -39,3 +39,5 @@ variable "subnet1_private_ip" {
     #type = string
     default = ["192.168.1.10", "192.168.1.20", "192.168.1.30"]
 }
+
+#test
