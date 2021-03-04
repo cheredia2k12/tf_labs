@@ -1,7 +1,6 @@
 resource "aws_instance" "server1" {
-    #ami = "ami-0915bcb5fa77e4892"
     ami = "${var.ami_id}"
-    instance_type = "t2.micro"
+    instance_type = "${var.tipo_instancia}"
     count = 1
     subnet_id = "${aws_subnet.main1.id}"
     associate_public_ip_address = true

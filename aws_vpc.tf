@@ -1,5 +1,5 @@
 resource "aws_vpc" "main1" {
-    cidr_block = "192.168.0.0/16"
+    cidr_block = "${var.vpc_cidr}"
     enable_dns_hostnames = true
 
     tags = {
@@ -9,8 +9,8 @@ resource "aws_vpc" "main1" {
 
 resource "aws_subnet" "main1" {
     vpc_id = "${aws_vpc.main1.id}"
-    cidr_block = "192.168.1.0/24"
-    availability_zone = "us-east-1a"
+    cidr_block = "${var.subnet1_cidr}"
+    availability_zone = "${var.subnet1_zone_1a}"
     map_public_ip_on_launch = true
 
     tags = {
