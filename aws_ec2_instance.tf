@@ -1,4 +1,4 @@
-resource "aws_instance" "server1" {
+resource "aws_instance" "servers" {
     ami = "${var.ami_id}"
     instance_type = "${var.tipo_instancia}"
     count = 1
@@ -9,13 +9,13 @@ resource "aws_instance" "server1" {
     user_data = "${file("userdata.sh")}"
 
     tags = {
-      "Name" = "server1"
+      "Name" = "server-${count.index + 1}"
       "Owner" = "terraform"
       "Env" = "dev"
     }
 }
 
 output "public_dns" {
-    value = aws_instance.server1.*.public_dns
+    value = aws_instance.servers.*.public_dns
   
 }
