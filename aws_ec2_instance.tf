@@ -1,7 +1,10 @@
 resource "aws_instance" "servers" {
     ami = "${var.ami_id}"
     instance_type = "${var.tipo_instancia}"
-    count = 3
+    #para no harcorear la cantidad de instancias, uso length para que cree todas las instancias 
+    #en funcion a la cantidad de ip privadas que defino
+    #count = 3
+    count = "${length(var.subnet1_private_ip)}"
     subnet_id = "${aws_subnet.main1.id}"
     associate_public_ip_address = true
     vpc_security_group_ids = ["${aws_security_group.sg1.id}", "${aws_security_group.sg2.id}"]
@@ -17,7 +20,3 @@ resource "aws_instance" "servers" {
     }
 }
 
-output "public_dns" {
-    value = aws_instance.servers.*.public_dns
-  
-}
