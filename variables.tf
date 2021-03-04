@@ -33,3 +33,9 @@ variable "tipo_instancia" {
     #type = string
     #default = "t2.micro"
 }
+
+variable "subnet1_private_ip" {
+    description = "Lista de ip privada a asignar como indice"
+    #type = string
+    default = ["192.168.1.10", "192.168.1.20", "192.168.1.30"]
+}
