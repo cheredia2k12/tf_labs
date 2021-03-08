@@ -1,7 +1,0 @@
-#para utlizar este archivo de variables ejecutamos "terraform <accion> -var-file all_vars.tfvars"
-ami_id          = "ami-0915bcb5fa77e4892"
-region          = "us-east-1"
-vpc_cidr        = "192.168.0.0/16"
-subnet1_cidr    = "192.168.1.0/24"
-subnet1_zone_1a = "us-east-1a"
-tipo_instancia  = "t2.micro"
