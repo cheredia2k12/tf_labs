@@ -4,11 +4,11 @@ provider "aws" {
 
 module "vpc" {
   source      = "../modules/vpc"
-  vpc_cidr    = "192.168.0.0/16"
+  vpc_cidr    = "10.11.0.0/16"
   tenancy     = "default"
   vpc_id      = module.vpc.vpc_id
-  subnet_cidr = "192.168.99.0/24"
-  sg_id       = module.vpc.sg_id
+  subnet_cidr = "10.11.1.0/24"
+
 }
 
 module "ec2" {
@@ -17,5 +17,4 @@ module "ec2" {
   ami_id        = "ami-09246ddb00c7c4fef"
   instance_type = "t2.micro"
   subnet_id     = module.vpc.subnet_id
-  sg_id         = module.vpc.sg_id
 }

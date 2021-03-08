@@ -1,8 +1,8 @@
 resource "aws_elb" "my_elb" {
-  name               = "my-terraform-elb"
+  name = "my-terraform-elb"
   #availability_zones = ["us-east-2a", "us-east-2b", "us-east-2c"]
-  subnets = [ "${aws_subnet.subnet1.id}", "${aws_subnet.subnet2.id}", "${aws_subnet.subnet3.id}",]
-  security_groups = [ aws_security_group.elb_http.id ]
+  subnets         = ["${aws_subnet.subnet1.id}", "${aws_subnet.subnet2.id}", "${aws_subnet.subnet3.id}", ]
+  security_groups = [aws_security_group.elb_http.id]
   #access_logs {
   #  bucket        = "foo"
   #  bucket_prefix = "bar"

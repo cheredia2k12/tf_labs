@@ -17,3 +17,4 @@ variable "azs_list" {
 }
 
 data "aws_availability_zones" "azs" {}
+
