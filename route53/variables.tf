@@ -23,9 +23,17 @@ variable "tipo_instancia" {
     #type = string
     default = "t2.micro"
 }
-
+/*
 variable "ami_id" {
     description = "AMI id para usar como imagen en la instancia"
     type = string
     default = "ami-09246ddb00c7c4fef"
+}
+*/
+variable "ec2_ami" {
+  type = "map"
+  default = {
+    us-east-1 = "ami-0915bcb5fa77e4892"
+    us-east-2 = "ami-09246ddb00c7c4fef"
+  }
 }

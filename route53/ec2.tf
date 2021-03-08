@@ -4,7 +4,9 @@ resource "aws_key_pair" "key-class1" {
 }
 
 resource "aws_instance" "server1" {
-    ami = "${var.ami_id}"
+    #ami = "${var.ami_id}"
+    #utilizo funcion lookup (tipo de variable mapa)
+    ami = "${lookup(var.ec2_ami, var.region)}"
     instance_type = "${var.tipo_instancia}"
     subnet_id = "${aws_subnet.subnet1.id}"
     associate_public_ip_address = true
@@ -22,7 +24,9 @@ resource "aws_instance" "server1" {
 }
 
 resource "aws_instance" "server2" {
-    ami = "${var.ami_id}"
+    #ami = "${var.ami_id}"
+    #utilizo funcion lookup (tipo de variable mapa)
+    ami = "${lookup(var.ec2_ami, var.region)}"    
     instance_type = "${var.tipo_instancia}"
     subnet_id = "${aws_subnet.subnet1.id}"
     associate_public_ip_address = true
