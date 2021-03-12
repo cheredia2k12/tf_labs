@@ -1,0 +1,4 @@
+class_key.pem
+class_key.pem.pub
+terraform.tfstate
+terraform.tfstate.backup
